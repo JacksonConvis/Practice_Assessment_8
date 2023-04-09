@@ -1,0 +1,26 @@
+<li *ngFor="let M of Members; let i = index">
+<p> ID: {{M.id}} </p> 
+<p> Name: {{M.name}} </p> 
+ <p> Books Read: {{M.booksRead}} <button (click)="readBook(M)"> Read a Book</button> </p> 
+ <p> Founding Member: {{M.foundingMember}}  </p>  
+ <button (click)="kickMember(M)"> Kick out Member</button> 
+ <p> </p>
+</li>
+
+
+<h3> Add Member </h3>
+<form (ngSubmit)="onSubmit()">
+  <label>
+    Name:
+    <input type="text" name="name" [(ngModel)]="newMember.name">
+  </label>
+  <label>
+   Founding Member?
+    <input type="checkbox" name="foundingMember" [(ngModel)]="newMember.foundingMember">
+  </label>
+  <label>
+    Books read:
+    <input type="number" name="booksRead" [(ngModel)]="newMember.booksRead">
+  </label>
+  <button type="submit">Add Member</button>
+</form>
